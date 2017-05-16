@@ -1,9 +1,9 @@
-from business_logic import print_out_data
+from business_logic import visualize_data
 
 
 def main():
     while True:
-        print_out_data()
+        visualize_data()
 
 
 if __name__ == "__main__":
