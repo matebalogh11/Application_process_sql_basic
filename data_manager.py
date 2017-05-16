@@ -13,13 +13,13 @@ def data_handler(query):
                      VALUES ('Markus', 'Schaffarzyk', '003620/725-2666', 'djnovus@groovecoverage.com',54823);
                      SELECT * FROM applicants WHERE application_code = 54823;""",
                6: """UPDATE applicants SET phone_number = '003670/223-7459' WHERE first_name = 'Jemima' AND last_name = 'Foreman';
-                     SELECT * FROM applicants WHERE application_code = 58324;""",
+                     SELECT phone_number FROM applicants WHERE application_code = 58324;""",
                7: """DELETE FROM applicants WHERE email LIKE '%mauriseu.net'; SELECT * FROM applicants;"""}
 
     try:
         connection_str = "dbname='bmate11' user='bmate11' host='localhost' password='3dc41885'"
         conn = psycopg2.connect(connection_str)
-        #  conn.autocommit = True
+        conn.autocommit = False
         cursor = conn.cursor()
         cursor.execute(options[query])
         rows = cursor.fetchall()
