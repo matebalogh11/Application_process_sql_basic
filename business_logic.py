@@ -1,6 +1,6 @@
 from data_manager import data_handler
-import sys
-import os
+from sys import exit
+from os import system
 
 
 def main_menu():
@@ -16,7 +16,7 @@ def main_menu():
     selected_q = int(input("\nSelected question: \n"))
     if not selected_q:
         print("Exiting...")
-        sys.exit()
+        exit()
     fetched_data = data_handler(selected_q)
     return fetched_data, selected_q
 
@@ -24,7 +24,7 @@ def main_menu():
 def visualize_data():
 
     try:
-        os.system("clear")
+        system("clear")
         result, selected_q = main_menu()
         print_row(selected_q, result)
     except ValueError:
@@ -34,15 +34,20 @@ def visualize_data():
 
 def print_row(q_number, result):
 
-    os.system("clear")
+    system("clear")
     header_row = {1: ["firs_name", "last_name"], 2: ["nick_name"], 3: ["full_name", "phone_number"],
-                  4: ["full_name", "phone_number"],
-                  5: ["id", "firs_name", "last_name", "phone_number", "email", "application_code"],
-                  6: ["phone_number"], 7: ["id", "firs_name", "last_name", "phone_number", "email", "application_code"]}
-    columns = [column for column in header_row.get(q_number)]
+                  4: ["phone_number"], 5: ["id", "firs_name", "last_name", "phone_number", "email", "application_code"]}
+
+    paired_dict = {1: 1, 2: 2, 3: 3, 4: 3, 5: 5, 6: 4, 7: 5}
+    columns = [column for column in header_row.get(paired_dict[q_number])]
     print("\n")
-    print(("{}      "*len(columns)).format(*columns))
-    print("-"*len(columns*16))
+    if len(columns) < 5:
+        print(("{}     "*len(columns)).format(*columns))
+        print("-"*len(columns*14))
+    else:
+        padding = 38 if q_number == 7 else 20
+        print("{:<2}  {:>12}  {:>10}  {:>16}  {:>{x}}  {:>20}".format(*columns, x=padding))
+        print("-"*len(columns*18))
 
     for row in result:
         if len(row) == 1:
@@ -50,6 +55,7 @@ def print_row(q_number, result):
         elif len(row) == 2:
             print("{0:<12}   {w:<10}".format(row[0], w=row[1]))
         else:
-            print(("{:<2}   {:>10}   {:>10}   {:>10}   {:>46}   {:>10}").format(
-                   row[0], row[1], row[2], row[3], row[4], row[5]))
+            padding = 46 if q_number == 7 else 26
+            print(("{:<2}   {:>10}   {:>10}   {:>10}   {:>{x}}   {:>10}").format(
+                row[0], row[1], row[2], row[3], row[4], row[5], x=padding))
     input("\nPlease press Enter to continue")
