@@ -1,8 +1,10 @@
 import psycopg2
 
+# This module is for import only!
+
 
 def data_handler(query):
-
+    """Connect to the selected database and gather the requested data"""
     options = {1: """SELECT first_name, last_name FROM mentors;""",
                2: """SELECT nick_name FROM mentors WHERE city='Miskolc';""",
                3: """SELECT CONCAT(first_name, ' ', last_name) AS full_name, phone_number FROM applicants

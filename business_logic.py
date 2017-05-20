@@ -2,9 +2,11 @@ from data_manager import data_handler
 from sys import exit
 from os import system
 
+# This module is for import only!
+
 
 def main_menu():
-
+    """Print out the options panel connects to the database trough data_handler"""
     menu_options = {1: "Name of the mentors", 2: "Nicknames for mentors from Miskolc", 3: "Carol Something + phone",
                     4: "Girl from Adipiscingenimmi University", 5: "New student Markus",
                     6: "Phone number change for Jemima", 7: "Students who canceled  the application"}
@@ -21,8 +23,8 @@ def main_menu():
     return fetched_data, selected_q
 
 
-def visualize_data():
-
+def data_coordinator():
+    """Handle errors, fetch the data table and send it to print_row"""
     try:
         system("clear")
         result, selected_q = main_menu()
@@ -33,7 +35,7 @@ def visualize_data():
 
 
 def print_row(q_number, result):
-
+    """Print out the chosen data from the database in a pretty way"""
     system("clear")
     header_row = {1: ["firs_name", "last_name"], 2: ["nick_name"], 3: ["full_name", "phone_number"],
                   4: ["phone_number"], 5: ["id", "firs_name", "last_name", "phone_number", "email", "application_code"]}

@@ -1,9 +1,9 @@
-from business_logic import visualize_data
+from business_logic import data_coordinator
 
 
 def main():
     while True:
-        visualize_data()
+        data_coordinator()
 
 
 if __name__ == "__main__":
