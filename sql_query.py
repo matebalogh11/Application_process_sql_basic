@@ -26,8 +26,7 @@ def sql_requests(path):
                 WHERE applicants_mentors.creation_date > '20160101'
                 ORDER BY applicants_mentors.creation_date DESC;""",
            "applicants-and-mentors": """SELECT  CONCAT(applicants.first_name, ' ', applicants.last_name) AS Applicant,
-                applicants.application_code,
-                CASE WHEN mentors.nick_name IS NULL THEN 'None' ELSE mentors.nick_name END
+                applicants.application_code, mentors.nick_name
                 FROM applicants
                 LEFT JOIN applicants_mentors ON (applicants_mentors.applicant_id = applicants.id)
                 LEFT JOIN mentors ON (applicants_mentors.mentor_id = mentors.id);

@@ -1,3 +1,13 @@
+html {
+    font-family: "Exo 2";
+}
+
+body {
+    background: -webkit-linear-gradient(top, #f2f6f8 0%,#b5c6d0 26%,#f2f6f8 100%,#e0eff9 100%,#e0eff9 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
 #wrapper {
     margin-left: auto;
     margin-right: auto;
@@ -17,13 +27,34 @@ li {
 h1 {
     color: lightslategray;
     text-align: center;
+    margin-left: 30px; 
 }
 
-li:hover {
-    background-color: green;
+li:hover, a:hover {
+    background-color: lightslategray;
 }
 
 a {
     text-decoration: none;
     color: black;
+}
+
+th {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+th, td, tr {
+    border-style: solid;
+    border-width: 1px;
+    width: auto;
+}
+
+table {
+    width: 520px;
+    table-layout: fixed;
+}
+
+p:first-child {
+    text-decoration: underline;
 }

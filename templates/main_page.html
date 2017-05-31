@@ -3,7 +3,7 @@
 <div id="wrapper">
     <ul>
         {% for item in menu %}
-        <li><a href="{{url_for('root_page', path=item[1])}}">{{ item[0] }}</a></li>
+        <li><a href="{{url_for('questions', page=item[1])}}">{{ item[0] }}</a></li>
         {% endfor %}
     </ul>
 </div>
