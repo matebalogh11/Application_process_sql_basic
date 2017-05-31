@@ -44,7 +44,7 @@ def print_row(q_number, result):
     columns = [column for column in header_row.get(paired_dict[q_number])]
     print("\n")
     if len(columns) < 5:
-        print(("{}     "*len(columns)).format(*columns))
+        print(("{}     " * len(columns)).format(*columns))
         print("-"*len(columns*14))
     else:
         padding = 38 if q_number == 7 else 20
@@ -61,3 +61,5 @@ def print_row(q_number, result):
             print(("{:<2}   {:>10}   {:>10}   {:>10}   {:>{x}}   {:>10}").format(
                 row[0], row[1], row[2], row[3], row[4], row[5], x=padding))
     input("\nPlease press Enter to continue")
+
+

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<table>
+    <tr>
+        {% for item in header %}
+            <th> {{ item }} </th>
+        {% endfor %}
+    </tr>
+    {% for item in result %}
+        <tr>
+            {% for data in item %}
+                <td> {{ data }} </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    
+{% endblock %}
