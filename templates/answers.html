@@ -1,18 +1,20 @@
 {% extends "layout.html" %}
 {% block content %}
 
+<p><a href="{{ url_for('root_page') }}">Back to main menu</a></p>
 <table>
     <tr>
-        {% for item in header %}
-            <th> {{ item }} </th>
-        {% endfor %}
+    {% for item in header %}
+        <th> {{ item }} </th>
+    {% endfor %}
     </tr>
     {% for item in result %}
-        <tr>
-            {% for data in item %}
-                <td> {{ data }} </td>
-            {% endfor %}
-        </tr>
+    <tr>
+        {% for data in item %}
+            <td> {{ data }} </td>
+        {% endfor %}
+    </tr>
     {% endfor %}
-    
+</table>
+
 {% endblock %}

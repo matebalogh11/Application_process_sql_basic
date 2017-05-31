@@ -1,8 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-<ol>
-    {% for item in menu %}
-    <li><a href="{{url_for(item[1])}}">{{ item[0] }}</a></li>
-    {% endfor %}
-</ol>
+<div id="wrapper">
+    <ul>
+        {% for item in menu %}
+        <li><a href="{{url_for('root_page', path=item[1])}}">{{ item[0] }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+
 {% endblock %}
