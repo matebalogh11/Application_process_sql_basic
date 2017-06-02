@@ -30,18 +30,21 @@ h1 {
     margin-left: 30px; 
 }
 
-li:hover, a:hover {
+#menu_a:hover {
     background-color: lightslategray;
 }
 
 a {
     text-decoration: none;
     color: black;
+    display: block;
+    border-radius: 25px;
 }
 
 th {
     font-weight: bold;
     font-size: 1.3em;
+    background-color: lightslategray;
 }
 
 th, td, tr {

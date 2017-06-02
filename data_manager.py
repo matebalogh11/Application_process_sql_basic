@@ -15,7 +15,7 @@ def data_handler(SQL):
         result = cursor.fetchall()
         header = [desc[0] for desc in cursor.description]
         return result, header
-    except psycopg2.DatabaseError:
+    except Exception:
         print("Uh oh.. cannot connect to the database")
     finally:
         if conn:

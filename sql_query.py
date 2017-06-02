@@ -2,6 +2,7 @@
 
 
 def sql_requests(path):
+    """Contain a list of predefined SQL querys, with the appropriate key return the related data."""
 
     SQL = {"mentors": """SELECT mentors.first_name, mentors.last_name, schools.name, schools.country
                 FROM mentors
