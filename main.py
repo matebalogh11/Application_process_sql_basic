@@ -1,7 +1,6 @@
 from flask import Flask, render_template, url_for, redirect
 from data_manager import data_handler
 from sql_query import sql_requests
-import time
 
 app = Flask(__name__)
 
